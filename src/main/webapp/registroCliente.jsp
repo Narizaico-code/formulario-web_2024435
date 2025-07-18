@@ -11,6 +11,13 @@
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
                 integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
                 crossorigin="anonymous">
+            <style>
+                .menu {
+                    width: 128px;
+                    height: auto;
+                }
+            </style>
+            <a href="index.jsp"><img class="menu" src="resources/menu.png" alt="Regresar a menu principal"></a>
         </head>
 
         <body>
@@ -40,19 +47,19 @@
 
                     <div class="mb-3">
                         <label for="genero" class="form-control">Genero</label>
-                            <select name="genero" id="id">
-                                <option value="masculino">Masculino</option>
-                                <option value="femenino">Femenino</option>
-                                <option value="no">No especifico</option>
-                            </select>
+                        <select name="genero" id="id">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="no">No especifico</option>
+                        </select>
                     </div>
 
                     <div>
                         <label for="edad" class="form-control">Edad:</label>
                         <input type="number" name="edad" id="edad" class="form-control">
                     </div>
-                    
-                    <input type="submit" value="Enviar" class= "btn btn-primary">
+
+                    <input type="submit" value="Enviar" class="btn btn-primary">
                 </form>
 
             </div>

@@ -15,7 +15,9 @@ import model.Cliente;
  */
 @WebServlet("/ServletEditarCliente")
 public class ServletEditarCliente extends HttpServlet {
+
     ClienteDAO clienteDao = new ClienteDAO();
+
     protected void doGet(HttpServletRequest solicitud, HttpServletResponse respuesta) throws IOException, ServletException {
         String accion = solicitud.getParameter("accion");
         switch (accion) {
@@ -28,6 +30,17 @@ public class ServletEditarCliente extends HttpServlet {
                 solicitud.getRequestDispatcher("editarCliente.jsp").forward(solicitud, respuesta);
                 break;
             case "actualizar":
+                int id = Integer.parseInt(solicitud.getParameter("id"));
+                cliente = clienteDao.buscarPorId(id);
+                cliente.setNombre(solicitud.getParameter("nombre"));
+                cliente.setApellido(solicitud.getParameter("apellido"));
+                cliente.setTelefono(solicitud.getParameter("telefono"));
+                cliente.setCorreo(solicitud.getParameter("correo"));
+                cliente.setGenero(solicitud.getParameter("genero"));
+                cliente.setEdad(Integer.parseInt(solicitud.getParameter("edad")));
+
+                clienteDao.actualizar(cliente);
+                respuesta.sendRedirect("/ServletListarClientes");
 
                 break;
             default:
