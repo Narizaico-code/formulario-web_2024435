@@ -47,9 +47,9 @@
                     <div class="mb-3">
                         <label for="genero" class="form-control">Genero</label>
                             <select name="genero" id="id">
-                                <option value="masculino">Masculino</option>
-                                <option value="femenino">Femenino</option>
-                                <option value="no">No especifico</option>
+                                <option <%=cliente.getGenero().equals("masculino") ? "selected" : "masculino" %>>Masculino</option>
+                                <option <%=cliente.getGenero().equals("femenino") ? "selected" : "femenino" %>>Femenino</option>
+                                <option <%=cliente.getGenero().equals("no") ? "selected" : "no" %>>No especifico</option>
                             </select>
                     </div>
 
@@ -59,6 +59,8 @@
                     </div>
                     
                     <input type="submit" value="Enviar" class= "btn btn-primary">
+                    
+                    <a href="ServletListarClientes" class="btn btn-secondary"></a>
             </form>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
