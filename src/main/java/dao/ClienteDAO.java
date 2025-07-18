@@ -1,8 +1,10 @@
 package dao;
 
 import java.util.List;
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import model.Cliente;
 
@@ -36,7 +38,7 @@ public class ClienteDAO {
         EntityManager admin = fabrica.createEntityManager();
         try {
             //getResultList -> lista de objetos
-            
+
             //JPQL
             return admin.createQuery("SELECT c FROM Cliente c", Cliente.class).getResultList();
         } finally {
@@ -44,13 +46,48 @@ public class ClienteDAO {
         }
     }
 
-    public Cliente listarPorId(int id) {
-        return null;
+    public Cliente buscarPorId(int id) {
+        EntityManager admin = fabrica.createEntityManager();
+
+        try {
+            return admin.find(Cliente.class, id);
+        } finally {
+            admin.close();
+        }
     }
 
     public void actualizar(Cliente cliente) {
+        //entitymanager, entitytransation -> begin, proceso, commit | rollback --> close
+        EntityManager admin = fabrica.createEntityManager();
+        EntityTransaction transaccion = admin.getTransaction();
+        try {
+            transaccion.begin();
+            admin.merge(cliente);
+            transaccion.commit();
+        } catch (Exception e) {
+            if (transaccion.isActive()) {
+                transaccion.rollback();
+            }
+        } finally {
+            admin.close();
+        }
     }
 
     public void eliminar(int id) {
+        EntityManager admin = fabrica.createEntityManager();
+        EntityTransaction tr = admin.getTransaction();
+
+        try {
+            tr.begin();
+            Cliente cliente = admin.find(Cliente.class, id);
+            if (cliente != null) {
+                admin.remove(cliente);
+            }
+            tr.commit();
+        } catch (Exception e) {
+            if (tr.isActive()) tr.rollback();
+        } finally {
+            admin.close();
+        }
     }
 }

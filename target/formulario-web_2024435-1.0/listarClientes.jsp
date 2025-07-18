@@ -75,7 +75,7 @@
                                                 <%=cliente.getEdad()%>
                                             </td>
                                             <td>
-                                                <a href="ServletEditarCliente?id=<%=cliente.getCodigoCliente()%>"
+                                                <a href="ServletEditarCliente?accion=editar&id=<%=cliente.getCodigoCliente()%>"
                                                     class="btn btn-warning btn-sm">Editar</a>
                                                 <a href="ServletEliminarCliente?id=<%=cliente.getCodigoCliente()%>"
                                                     class="btn btn-danger btn-sm"
