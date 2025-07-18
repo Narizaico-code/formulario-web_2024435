@@ -1,3 +1,4 @@
 controller\ServletCliente.class
 dao\ClienteDAO.class
+controller\ServletListarClientes.class
 model\Cliente.class

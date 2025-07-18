@@ -45,9 +45,9 @@ public class ServletCliente extends HttpServlet {
         dao.guardar(cliente);
 
         
-        impresoraHtml.println("<html><body>");
-        impresoraHtml.println("<h1> hola "+ nombre + "!!Bienvenido al sistema </h1>" );
-        impresoraHtml.println("<p> Agregado correctamente</p>");
-        impresoraHtml.println("</body> </hmtl>");
+//        impresoraHtml.println("<html><body>");
+//        impresoraHtml.println("<h1> hola "+ nombre + "!!Bienvenido al sistema </h1>" );
+//        impresoraHtml.println("<p> Agregado correctamente</p>");
+//        impresoraHtml.println("</body> </hmtl>");
     }
 }

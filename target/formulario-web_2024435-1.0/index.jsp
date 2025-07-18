@@ -18,7 +18,7 @@
                     <li><a href="registroCliente.jsp" class="a">
                             <img src="resources/agregarEmpleado.png" alt="Imagen de agregar"></a>
                     </li>
-                    <li><a href="listarClientes.jsp">Mostrar Clientes</a></li>
+                    <li><a href="ServletListarClientes">Mostrar Clientes</a></li>
                     <li>third</li>
 
                 </ol>
