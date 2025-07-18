@@ -18,13 +18,19 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="codigoCliente")
     private int codigoCliente;
-    @Column
+    @Column(name="edad")
     private int edad;
+    @Column(name="correo")
     private String correo;
+    @Column(name="nombre")
     private String nombre;
+    @Column(name="apellido")
     private String apellido;
+    @Column(name="telefono")
     private String telefono;
+    @Column(name="genero")
     private String genero;
 
     public Cliente(int edad, String nombre, String apellido, String telefono, String correo, String genero) {

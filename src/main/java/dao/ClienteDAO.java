@@ -20,14 +20,28 @@ public class ClienteDAO {
         //Entity Manager, manejar las transacciones.
         EntityManager admin = fabrica.createEntityManager();
         //BEGIN - proceso - commit -> close
-        admin.getTransaction().begin();
-        admin.persist(cliente);
-        admin.getTransaction().commit();
-        admin.close();
+        try {
+            admin.getTransaction().begin();
+            admin.persist(cliente);
+            admin.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println("Error al guardar cliente: " + e.getMessage());
+        } finally {
+            admin.close();
+        }
+
     }
 
     public List<Cliente> listarTodos() {
-        return null;
+        EntityManager admin = fabrica.createEntityManager();
+        try {
+            //getResultList -> lista de objetos
+            
+            //JPQL
+            return admin.createQuery("SELECT c FROM Cliente c", Cliente.class).getResultList();
+        } finally {
+            admin.close();
+        }
     }
 
     public Cliente listarPorId(int id) {
