@@ -19,7 +19,7 @@ public class ServletListarClientes extends HttpServlet {
 
     //get y post
     protected void doGet(HttpServletRequest solicitud, HttpServletResponse respuesta) throws IOException, ServletException {
-
+        respuesta.setContentType("text/html;charset=UTF-8");
         //Obtener la lista -> DAO
         ClienteDAO dao = new ClienteDAO();
         List<Cliente> listaClientes = dao.listarTodos();

@@ -2,6 +2,7 @@ package controller;
 
 import dao.ClienteDAO;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,11 +16,11 @@ import model.Cliente;
  */
 @WebServlet("/ServletEditarCliente")
 public class ServletEditarCliente extends HttpServlet {
-
     ClienteDAO clienteDao = new ClienteDAO();
 
     protected void doGet(HttpServletRequest solicitud, HttpServletResponse respuesta) throws IOException, ServletException {
         String accion = solicitud.getParameter("accion");
+        respuesta.setContentType("text/html;charset=UTF-8");
         switch (accion) {
             case "editar":
                 int idEditar = Integer.parseInt(solicitud.getParameter("id"));
@@ -40,7 +41,7 @@ public class ServletEditarCliente extends HttpServlet {
                 cliente.setEdad(Integer.parseInt(solicitud.getParameter("edad")));
 
                 clienteDao.actualizar(cliente);
-                respuesta.sendRedirect("/ServletListarClientes");
+                respuesta.sendRedirect("ServletListarClientes");
 
                 break;
             default:

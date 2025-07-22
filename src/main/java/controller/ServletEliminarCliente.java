@@ -25,9 +25,10 @@ public class ServletEliminarCliente extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        //p: id int -> dao.Eliminar | remove() -> redirige:ServletListarClientes
         ClienteDAO dao = new ClienteDAO();
         int idEliminar = Integer.parseInt(request.getParameter("id"));
         dao.eliminar(idEliminar);

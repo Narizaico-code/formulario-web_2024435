@@ -2,7 +2,7 @@
 
     <%@page contentType="text/html" pageEncoding="UTF-8" %>
         <!doctype html>
-        <html lang="en">
+        <html lang="es">
 
         <head>
             <meta charset="utf-8">
@@ -46,8 +46,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="genero" class="form-control">Genero</label>
-                        <select name="genero" id="id">
+                        <label for="genero" class="form-label">Genero</label>
+                        <select name="genero" id="id" class="form-control">
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>
                             <option value="no">No especifico</option>
